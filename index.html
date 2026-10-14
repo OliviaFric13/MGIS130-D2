@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic GPA Calculator</title>
+    <!-- Link to Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <h1>GPA Calculator</h1>
+            <p>Track your courses, calculate your cumulative GPA, and keep your records saved automatically.</p>
+        </header>
+
+        <main>
+            <!-- Course Input Form Card -->
+            <section class="card form-card">
+                <h2>Add New Course</h2>
+                <form id="course-form">
+                    <div class="form-group">
+                        <label for="course-name">Course Name / Code</label>
+                        <input type="text" id="course-name" placeholder="e.g., MGIS 130" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course-credits">Credit Hours</label>
+                        <select id="course-credits" required>
+                            <option value="" disabled selected>Select credits</option>
+                            <option value="1">1 Credit</option>
+                            <option value="2">2 Credits</option>
+                            <option value="3" selected>3 Credits</option>
+                            <option value="4">4 Credits</option>
+                            <option value="5">5 Credits</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course-grade">Letter Grade</label>
+                        <select id="course-grade" required>
+                            <option value="" disabled selected>Select grade</option>
+                            <option value="A">A (4.0)</option>
+                            <option value="A-">A- (3.7)</option>
+                            <option value="B+">B+ (3.3)</option>
+                            <option value="B">B (3.0)</option>
+                            <option value="B-">B- (2.7)</option>
+                            <option value="C+">C+ (2.3)</option>
+                            <option value="C">C (2.0)</option>
+                            <option value="D">D (1.0)</option>
+                            <option value="F">F (0.0)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Add Course</button>
+                </form>
+            </section>
+
+            <!-- Results Summary Dashboard -->
+            <section class="card summary-card">
+                <div class="metric">
+                    <span class="metric-label">Total Credits</span>
+                    <span id="total-credits" class="metric-value">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Quality Points</span>
+                    <span id="total-quality-points" class="metric-value">0.0</span>
+                </div>
+                <div class="metric highlight">
+                    <span class="metric-label">Cumulative GPA</span>
+                    <span id="cumulative-gpa" class="metric-value">0.00</span>
+                </div>
+            </section>
+
+            <!-- Course List Table Section -->
+            <section class="card table-card">
+                <div class="table-header">
+                    <h2>Enrolled Courses</h2>
+                    <button id="clear-all-btn" class="btn-secondary">Clear All</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="courses-table">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Credits</th>
+                                <th>Grade</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="course-list">
+                            <!-- Dynamically populated rows will appear here -->
+                            <tr id="empty-state">
+                                <td colspan="4" class="empty-message">No courses added yet. Add a course above to get started!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
